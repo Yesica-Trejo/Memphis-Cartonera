@@ -51,7 +51,7 @@
     weights=400,600,700,800,900 give us fine control over text weight
   -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Indie+Flower:wght@400;600;700&family=Nunito:wght@400;500;600;700;800;900&family=Permanent+Marker&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Indie+Flower:wght@400;600;700&family=Times+New+Roman:wght@400;500;600;700;800;900&family=Permanent+Marker&display=swap"
     rel="stylesheet"
   />
 
@@ -76,7 +76,7 @@
   <!-- Logo image in the top-left corner; clicking scrolls to top -->
   <a class="nav-logo" href="#hero">
     <img
-      src="images/logo.png"
+      src="images/logo-hero.png"
       alt="Memphis Cartoneras logo — colorful book with sun rays"
       class="nav-logo-img"
     />
@@ -113,14 +113,14 @@
   <!-- Logo image — centered, large, transparent background -->
   <div class="logo-container">
     <img
-      src="images/logo.png"
+      src="images/logo-hero.png"
       alt="Memphis Cartoneras — colorful book logo with sun and rainbow lettering"
       class="hero-logo-img"
     />
   </div>
 
   <!-- Tagline — rendered as a yellow tape-strip label, slightly rotated -->
-  <p class="hero-tagline">Handmade books. Nurturing literacy. Recycling cardboard.</p>
+  <p class="hero-tagline">Handmaking books. Nurturing literacy. Recycling cardboard.</p>
 
   <!-- Call-to-action buttons; each links to a different section -->
   <div class="hero-buttons">
@@ -205,8 +205,10 @@
       <div class="about-card" style="grid-column: 1 / -1;">
         <h3>✂ The Cartonera Tradition</h3>
         <p>
-          The cartonera movement began in Buenos Aires in the early 2000s by writers and artists Washington Cucurto, Javier Barilaro, and Fernando Laguna. It started as a
-          grassroots response to economic crisis and cultural hunger, aimed at promoting literacy, affordable literature, and sustainability.
+          The cartonera movement began in Buenos Aires in the early 2000s by 
+          writers and artists Washington Cucurto, Javier Barilaro, and Fernando Laguna. 
+          It started as a grassroots response to economic crisis and cultural hunger, 
+          aimed at promoting literacy, affordable literature, and sustainability.
         </p>
         <p style="margin-top:12px;">
           Memphis Cartoneras carries that spirit forward: rooted in Memphis,
@@ -246,11 +248,11 @@
           <div class="timeline-year">The Beginning</div>
           <h3>The Spark in Memphis</h3>
           <p>
-            Memphis Cartoneras was founded by a professor at Rhodes College with a deep belief that storytelling belongs to everyone.
-            Inspired by Latin American cartonera cooperatives, the idea was to
-            bring handmade, community-published books to students in Memphis,
-            a city with rich literary and musical traditions that often go
-            unrecorded and unpublished.
+            Memphis Cartoneras was founded by a professor at Rhodes College with 
+            a deep belief that storytelling belongs to everyone. Inspired by Latin 
+            American cartonera cooperatives, the idea was to bring handmade, 
+            community-published books to students in Memphis, a city with rich 
+            literary and musical traditions that often go unrecorded and unpublished.
           </p>
         </div>
       </div>
@@ -336,7 +338,7 @@
     <!-- Short description below the heading -->
     <p class="gallery-intro">
       Every book here was imagined, written, illustrated, and bound by a student
-      at Memphis Cartoneras. These aren't just projects — they're published works.
+      at Memphis Cartoneras. These aren't just projects, they're published works.
     </p>
 
     <!-- Card grid — min 250px per card, fills available width -->
@@ -344,15 +346,20 @@
 
       <!-- PLACEHOLDER 1 — red tint background -->
       <div class="gallery-card">
-        <div class="gallery-img-placeholder" style="background:rgba(192,57,43,0.1);">
-          <svg width="48" height="48" fill="none" stroke="#7a3020" stroke-width="1.5" viewBox="0 0 24 24">
-            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
-          </svg>
-          <span class="gallery-upload-hint">Upload student book image</span>
-        </div>
+        <img src="images/gallery/las-medias-flamencos.jpg"
+                    alt="Las Medias de los Flamencos by Student Name"
+                    style="width:100%; aspect-ratio:4/3;
+                           object-fit:cover; display:block;">
+        
         <div class="gallery-caption">
-          <div class="gallery-caption-line"></div> <!-- ruled line 1 (85% wide) -->
-          <div class="gallery-caption-line"></div> <!-- ruled line 2 (60% wide) -->
+           <p style="font-family:'Indie Flower',cursive; font-size:1.1rem;
+                    font-weight:700; color:#2c1810; padding:8px 16px 0;">
+            Las Medias de los Flamencos
+          </p>
+          <p style="font-size:0.85rem; color:#7a5030; padding:4px 16px 12px;">
+            Student Name Placeholder
+            Date TBD
+          </p>
         </div>
       </div>
 
@@ -429,7 +436,7 @@
     </div><!-- end .gallery-grid -->
 
     <!-- In-page reminder note about how to add real photos -->
-    <div style="margin-top:36px; font-family:'Caveat',cursive; font-size:1rem; color:#5a3a20; background:rgba(255,248,220,0.8); display:inline-block; padding:10px 20px; border:2px dashed var(--cardboard-dark);">
+    <div style="margin-top:36px; font-family:'Indie Flower',cursive; font-size:1rem; color:#5a3a20; background:rgba(255,248,220,0.8); display:inline-block; padding:10px 20px; border:2px dashed var(--cardboard-dark);">
       ✏️ <strong>To add images:</strong> Replace placeholder divs with &lt;img&gt; tags. See js/main.js for full step-by-step instructions.
     </div>
 
@@ -481,7 +488,7 @@
           <div class="contact-icon" style="background:rgba(26,122,110,0.12); border-color:var(--teal);">🏛</div>
           <div>
             <strong>Office</strong>
-            <p>Department of Spanish & Latin American, LatinX Studies<br>Rhodes College<br>Memphis, TN</p>
+            <p>Department of Modern Languages<br>Rhodes College<br>Memphis, TN</p>
           </div>
         </div>
 
