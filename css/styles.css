@@ -77,7 +77,7 @@ html {
    The texture is position:fixed so it stays in place while scrolling.
    ──────────────────────────────────────────────────────────────── */
 body {
-  font-family: 'Times New Roman', serif;   /* default font for all text */
+  font-family: 'Gentium Plus', serif;   /* default font for all text */
   font-size: 17px;
   font-weight: 500;
   line-height: 1.8;                    /* comfortable reading line height */
@@ -182,7 +182,7 @@ nav {
 
 /* Base style shared by all nav link <a> tags */
 .nav-links a {
-  font-family: 'Times New Roman', serif;
+  font-family: 'Gentium Plus', serif;
   font-size: 0.88rem;
   font-weight: 800;
   text-decoration: none;
@@ -295,9 +295,9 @@ nav {
 
 /* Tagline strip — styled as a yellow sticky-note tape strip */
 .hero-tagline {
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Indie Flower', handwriting;
   font-size: 1.6rem;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--ink);
   margin-top: 28px;
   position: relative;
@@ -333,7 +333,7 @@ nav {
 
 /* Base button — bold, uppercase, thick border, hard offset shadow */
 .btn {
-  font-family: 'Times New Roman', serif;
+  font-family: 'Gentium Plus', serif;
   font-size: 1rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -416,7 +416,7 @@ section {
 
 /* Small uppercase label above the main section heading */
 .section-label {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Permanent Marker', serif;
   font-size: 0.85rem;
   letter-spacing: 4px;
   text-transform: uppercase;
@@ -497,7 +497,7 @@ section {
 
 /* Card heading */
 .about-card h3 {
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Indie Flower', handwriting;
   font-size: 1.8rem;
   font-weight: 700;
   color: var(--ink);
@@ -526,7 +526,7 @@ section {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Caveat', cursive;
+  font-family: 'Indie Flower', handwriting;
   font-size: 1.15rem;
   font-weight: 600;
 }
@@ -609,7 +609,7 @@ section {
 
 /* Year label — Permanent Marker font in red */
 .timeline-year {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Permanent Marker', serif;
   font-size: 1.3rem;
   color: var(--red);
   margin-bottom: 4px;
@@ -617,7 +617,7 @@ section {
 
 /* Event title */
 .timeline-card h3 {
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Indie Flower', handwriting;
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 8px;
@@ -701,7 +701,7 @@ section {
   justify-content: center;
   flex-direction: column;
   gap: 10px;
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Indie Flower', handwriting;
   font-size: 1rem;
   color: rgba(60,40,20,0.5);
   border-bottom: 2px dashed var(--cardboard-dark);
@@ -782,7 +782,7 @@ section {
 
 /* Contact card heading */
 .contact-info-card h3 {
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Indie Flower', handwriting;
   font-size: 1.9rem;
   font-weight: 700;
   margin-bottom: 20px;
@@ -812,7 +812,7 @@ section {
 
 /* Text to the right of the icon */
 .contact-detail p      { line-height: 1.5; font-size: 0.95rem; }
-.contact-detail strong { font-family: 'Indie Flower', cursive; font-size: 1.05rem; }
+.contact-detail strong { font-family: 'Indie Flower', handwriting; font-size: 1.05rem; }
 
 /* RIGHT CARD — dark ink background for contrast */
 .fellow-card {
@@ -837,7 +837,7 @@ section {
 
 /* Fellow card heading — yellow to stand out on dark background */
 .fellow-card h3 {
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Indie Flower', handwriting;
   font-size: 1.9rem;
   font-weight: 700;
   margin-bottom: 12px;
@@ -866,7 +866,7 @@ section {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Indie Flower', handwriting;
   font-size: 1.1rem;
   color: var(--cardboard-light);
 }
@@ -904,7 +904,7 @@ footer {
 
 /* Column 1: brand name + blurb */
 .footer-brand h3 {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Permanent Marker', serif;
   font-size: 1.4rem;
   color: var(--yellow);
   margin-bottom: 10px;
@@ -920,7 +920,7 @@ footer {
 
 /* Columns 2 & 3: link lists */
 .footer-links h4 {
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Indie Flower', handwriting;
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--cardboard-light);
@@ -952,7 +952,7 @@ footer {
   justify-content: space-between;
   font-size: 0.8rem;
   color: var(--cardboard-dark);
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Indie Flower', handwriting;
 }
 
 
