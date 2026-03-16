@@ -30,7 +30,7 @@ const BOOKS = [
   // Add entries here. Order = order displayed on page.
 
   {
-    img:     "images/gallery/las-medias-flamencos.jpg",
+    img:     "images/gallery/las-medias-flamencos.JPG",
     title:   "Las Medias de los Flamencos",
     student: "Student Name",
     date:    "Date TBD"
