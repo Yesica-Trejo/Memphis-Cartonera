@@ -1,0 +1,1009 @@
+/* ================================================================
+   FILE: css/styles.css
+   PROJECT: Memphis Cartoneras Website
+   ----------------------------------------------------------------
+   FONT CHANGES:
+     'Abril Fatface' → section headings (large, bold block letters — NOT cursive)
+     'Lato'          → all body text, nav, buttons (clean, readable sans-serif)
+     'Caveat'        → accent-only: tagline, tape labels, captions
+     'Permanent Marker' → scrapbook section labels
+
+   ADDED:
+     Fellows photo grid styles (Section 8b)
+   ================================================================ */
+
+
+/* ────────────────────────────────────────────────────────────────
+   1. CSS VARIABLES & RESET
+   ──────────────────────────────────────────────────────────────── */
+:root {
+  --cardboard:       #c8a96e;
+  --cardboard-dark:  #a07840;
+  --cardboard-light: #e8d0a0;
+  --cardboard-mid:   #d4b87a;
+
+  --red:    #c0392b;
+  --yellow: #f1c40f;
+  --teal:   #1a7a6e;
+  --blue:   #2471a3;
+  --orange: #e67e22;
+  --green:  #27ae60;
+  --purple: #8e44ad;
+
+  --ink: #2c1810;
+  --tape: rgba(255, 235, 150, 0.7);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* ────────────────────────────────────────────────────────────────
+   2. BODY & CARDBOARD TEXTURE
+   Body font is now Lato — a clean, readable sans-serif.
+   Caveat is reserved for accent elements only (.accent-font class).
+   ──────────────────────────────────────────────────────────────── */
+body {
+  font-family: 'Lato', sans-serif;   /* ← CHANGED: readable body font */
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.8;
+  background-color: var(--cardboard);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* Grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent, transparent 3px,
+      rgba(160,120,64,0.08) 3px, rgba(160,120,64,0.08) 4px
+    ),
+    repeating-linear-gradient(
+      180deg,
+      transparent, transparent 5px,
+      rgba(100,70,30,0.06) 5px, rgba(100,70,30,0.06) 6px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      transparent, transparent 8px,
+      rgba(200,169,110,0.04) 8px, rgba(200,169,110,0.04) 9px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Vignette overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 30%,  rgba(255,220,130,0.25) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 70%,  rgba(160,100,40,0.2)   0%, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(120,80,30,0.15)   0%, transparent 40%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Utility class for accent/handwritten elements only */
+.accent-font {
+  font-family: 'Caveat', cursive;
+}
+
+
+/* ────────────────────────────────────────────────────────────────
+   3. NAVIGATION
+   ──────────────────────────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 40px;
+  background: rgba(120,80,30,0.92);
+  border-bottom: 3px solid var(--cardboard-dark);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  backdrop-filter: blur(4px);
+}
+
+.nav-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo-img {
+  height: 52px;
+  width: 52px;
+  object-fit: contain;
+  border-radius: 50%;
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+  transition: transform 0.2s;
+}
+
+.nav-logo:hover .nav-logo-img {
+  transform: rotate(-5deg) scale(1.08);
+}
+
+.nav-links {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  align-items: center;
+}
+
+/* Nav links use Lato — bold, readable, uppercase */
+.nav-links a {
+  font-family: 'Lato', sans-serif;   /* ← CHANGED: readable nav font */
+  font-size: 0.82rem;
+  font-weight: 900;
+  text-decoration: none;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border: 2px solid rgba(0,0,0,0.75);
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+  display: inline-block;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.nav-links a:hover {
+  transform: translate(-1px, -1px) rotate(-1deg);
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.5);
+}
+
+.nav-links li:nth-child(1) a {
+  background-color: #1a7a6e; color: #FFE01A;
+  background-image: repeating-linear-gradient(90deg,transparent,transparent 5px,rgba(255,255,255,0.1) 5px,rgba(255,255,255,0.1) 6px);
+  transform: rotate(-1.5deg);
+}
+.nav-links li:nth-child(2) a {
+  background-color: #d94f3d; color: #FFE01A;
+  background-image: radial-gradient(circle,rgba(255,255,255,0.25) 2px,transparent 2px);
+  background-size: 8px 8px;
+  transform: rotate(1deg);
+}
+.nav-links li:nth-child(3) a {
+  background-color: #f6c90e; color: #1a2f5c;
+  background-image: repeating-linear-gradient(45deg,transparent,transparent 4px,rgba(0,0,0,0.08) 4px,rgba(0,0,0,0.08) 5px);
+  transform: rotate(-1deg);
+}
+.nav-links li:nth-child(4) a {
+  background-color: #6c2f8a; color: #FF8C00;
+  transform: rotate(1.5deg);
+}
+.nav-links li:nth-child(5) a {
+  background-color: #1e9e5e; color: #FFE01A;
+  background-image: repeating-linear-gradient(0deg,transparent,transparent 4px,rgba(255,255,255,0.1) 4px,rgba(255,255,255,0.1) 5px);
+  transform: rotate(-1deg);
+  font-weight: 900;
+}
+
+
+/* ────────────────────────────────────────────────────────────────
+   4. HERO SECTION
+   ──────────────────────────────────────────────────────────────── */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  padding: 100px 40px 60px;
+  text-align: center;
+  overflow: hidden;
+}
+
+#hero::before {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0; right: 0;
+  height: 60px;
+  background: var(--cardboard);
+  clip-path: polygon(
+    0 60%,3% 20%,7% 55%,12% 10%,16% 50%,21% 5%,25% 45%,
+    30% 15%,35% 55%,40% 10%,45% 50%,50% 20%,55% 60%,60% 15%,
+    65% 50%,70% 5%,75% 40%,80% 15%,85% 55%,90% 20%,95% 50%,
+    100% 25%,100% 100%,0 100%
+  );
+  z-index: 2;
+}
+
+.hero-bg-splash {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.18;
+  z-index: 0;
+}
+.splash-1 { width:500px; height:500px; background:var(--red);    top:-100px;  left:-150px; }
+.splash-2 { width:400px; height:400px; background:var(--teal);   bottom:0;    right:-100px; }
+.splash-3 { width:300px; height:300px; background:var(--yellow); top:100px;   right:100px; }
+
+.logo-container {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 24px;
+  animation: floatIn 1s ease both;
+}
+
+.hero-logo-img {
+  max-width: 680px;
+  width: 90%;
+  position: relative;
+  z-index: 2;
+  animation: floatIn 1s ease both;
+}
+
+/* Tagline uses Caveat — this IS an intentional accent element */
+.hero-tagline {
+  font-family: 'Caveat', cursive;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 28px;
+  position: relative;
+  z-index: 2;
+  background: rgba(255,235,150,0.8);
+  display: inline-block;
+  padding: 6px 20px;
+  border: 2px solid var(--cardboard-dark);
+  transform: rotate(-1deg);
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+  animation: floatIn 1s 0.3s ease both;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: 2;
+  position: relative;
+  animation: floatIn 1s 0.5s ease both;
+}
+
+
+/* ────────────────────────────────────────────────────────────────
+   5. BUTTONS — Lato font, readable uppercase
+   ──────────────────────────────────────────────────────────────── */
+.btn {
+  font-family: 'Lato', sans-serif;   /* ← CHANGED: readable button font */
+  font-size: 0.95rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 12px 26px;
+  border: 3px solid var(--ink);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 4px 4px 0 var(--ink);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.btn-story {
+  background-color: #1a7a6e;
+  color: #FFE01A;
+  background-image: repeating-linear-gradient(
+    90deg, transparent, transparent 6px,
+    rgba(255,255,255,0.1) 6px, rgba(255,255,255,0.1) 7px
+  );
+  transform: rotate(-1deg);
+}
+
+.btn-gallery {
+  background-color: #d94f3d;
+  color: #FFE01A;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.25) 2px, transparent 2px);
+  background-size: 10px 10px;
+  transform: rotate(1deg);
+}
+
+.btn-apply {
+  background-color: #f6c90e;
+  color: #1a2f5c;
+  background-image: repeating-linear-gradient(
+    45deg, transparent, transparent 5px,
+    rgba(0,0,0,0.07) 5px, rgba(0,0,0,0.07) 7px
+  );
+  transform: rotate(-0.5deg);
+  font-weight: 900;
+}
+
+.tape {
+  position: absolute;
+  background: var(--tape);
+  border: 1px solid rgba(180,160,80,0.5);
+  z-index: 3;
+  transform-origin: center;
+}
+
+
+/* ────────────────────────────────────────────────────────────────
+   6. SHARED SECTION STYLES
+   ──────────────────────────────────────────────────────────────── */
+section {
+  position: relative;
+  z-index: 1;
+  padding: 90px 40px;
+}
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Section label — Permanent Marker (intentional scrapbook accent) */
+.section-label {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 0.85rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--cardboard-dark);
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Section heading — Abril Fatface: bold, solid block letters, NOT cursive */
+.section-title {
+  font-family: 'Abril Fatface', serif;
+  font-size: 3.2rem;
+  line-height: 1.1;
+  color: var(--ink);
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  height: 6px;
+  border-radius: 3px;
+  margin-top: 6px;
+}
+
+.underline-red::after    { background: var(--red); }
+.underline-teal::after   { background: var(--teal); }
+.underline-blue::after   { background: var(--blue); }
+.underline-orange::after { background: var(--orange); }
+.underline-yellow::after { background: var(--yellow); border: 1px solid var(--cardboard-dark); }
+
+
+/* ────────────────────────────────────────────────────────────────
+   7. ABOUT SECTION
+   ──────────────────────────────────────────────────────────────── */
+#about {
+  background: linear-gradient(135deg, rgba(200,169,110,0.5) 0%, rgba(212,184,122,0.6) 100%);
+  border-top: 4px solid var(--cardboard-dark);
+  border-bottom: 4px solid var(--cardboard-dark);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-top: 40px;
+  align-items: start;
+}
+
+.about-card {
+  background: rgba(255,248,220,0.85);
+  border: 3px solid var(--cardboard-dark);
+  padding: 36px;
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.about-card::before {
+  content: '';
+  position: absolute;
+  top: -10px; left: 30px;
+  width: 70px; height: 20px;
+  background: var(--tape);
+  border: 1px solid rgba(180,160,80,0.5);
+  transform: rotate(-2deg);
+}
+
+/* Card headings — Abril Fatface: big, bold, readable display font */
+.about-card h3 {
+  font-family: 'Abril Fatface', serif;
+  font-size: 1.5rem;
+  font-weight: 400;         /* Abril Fatface has no bold weight — the face IS bold */
+  color: var(--ink);
+  margin-bottom: 14px;
+  border-bottom: 3px solid var(--cardboard-mid);
+  padding-bottom: 8px;
+}
+
+.about-card p {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: #2c1810;
+}
+
+.about-values {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Value chips — Lato for readability */
+.value-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.value-dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  flex-shrink: 0;
+}
+
+
+/* ────────────────────────────────────────────────────────────────
+   8. HISTORY / TIMELINE SECTION
+   ──────────────────────────────────────────────────────────────── */
+#history {
+  padding: 80px 40px;
+}
+
+.timeline {
+  position: relative;
+  margin-top: 50px;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 12px; top: 0; bottom: 0;
+  width: 4px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--cardboard-dark) 0px, var(--cardboard-dark) 12px,
+    transparent 12px, transparent 20px
+  );
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  animation: slideRight 0.6s ease both;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -36px; top: 8px;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  border: 3px solid var(--ink);
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+}
+
+.timeline-card {
+  background: rgba(255,248,220,0.9);
+  border: 3px solid var(--cardboard-dark);
+  padding: 24px 28px;
+  box-shadow: 5px 5px 0 rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.timeline-card::before {
+  content: '';
+  position: absolute;
+  top: -8px; right: 20px;
+  width: 60px; height: 16px;
+  background: var(--tape);
+  border: 1px solid rgba(180,160,80,0.5);
+  transform: rotate(1deg);
+}
+
+/* Timeline year — Permanent Marker (intentional accent) */
+.timeline-year {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.3rem;
+  color: var(--red);
+  margin-bottom: 4px;
+}
+
+/* Timeline card heading — Abril Fatface: bold, readable */
+.timeline-card h3 {
+  font-family: 'Abril Fatface', serif;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+
+.timeline-card p {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #2c1810;
+}
+
+
+/* ────────────────────────────────────────────────────────────────
+   8b. FELLOWS PHOTO GALLERY (inside #history)
+   ──────────────────────────────────────────────────────────────── */
+.fellows-section {
+  margin-top: 70px;
+  padding-top: 50px;
+  border-top: 4px dashed var(--cardboard-dark);
+}
+
+.fellows-heading {
+  font-family: 'Abril Fatface', serif;
+  font-size: 2rem;
+  color: var(--ink);
+  margin-top: 10px;
+  margin-bottom: 12px;
+  position: relative;
+  display: inline-block;
+}
+
+.fellows-heading::after {
+  content: '';
+  display: block;
+  height: 5px;
+  background: var(--teal);
+  border-radius: 3px;
+  margin-top: 4px;
+}
+
+.fellows-intro {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: #3a2510;
+  line-height: 1.7;
+  max-width: 620px;
+  margin-bottom: 36px;
+}
+
+/* Grid of fellow photo cards — responsive auto-fill */
+.fellows-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 24px;
+}
+
+/* Individual fellow card */
+.fellow-photo-card {
+  background: rgba(255,248,220,0.9);
+  border: 3px solid var(--cardboard-dark);
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.fellow-photo-card:hover {
+  transform: translate(-2px, -2px) rotate(-1deg);
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.3);
+}
+
+/* Tape strip on each fellow card */
+.fellow-photo-card::before {
+  content: '';
+  position: absolute;
+  top: -7px; left: 50%;
+  transform: translateX(-50%) rotate(-1.5deg);
+  width: 50px; height: 16px;
+  background: var(--tape);
+  border: 1px solid rgba(180,160,80,0.5);
+  z-index: 2;
+}
+
+/* The actual photo — square crop */
+.fellow-photo-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+/* Placeholder shown before photo is added */
+.fellow-photo-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(200,169,110,0.2);
+  border-bottom: 2px dashed var(--cardboard-dark);
+  font-family: 'Caveat', cursive;
+  font-size: 0.9rem;
+  color: rgba(60,40,20,0.5);
+}
+
+/* Fellow name + cohort caption */
+.fellow-photo-caption {
+  padding: 10px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.fellow-photo-caption strong {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.fellow-photo-caption span {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.78rem;
+  color: #7a5030;
+}
+
+
+/* ────────────────────────────────────────────────────────────────
+   9. GALLERY SECTION
+   Cards are rendered by js/main.js from the BOOKS array.
+   ──────────────────────────────────────────────────────────────── */
+#gallery {
+  background: linear-gradient(135deg, rgba(180,140,80,0.4) 0%, rgba(200,169,110,0.5) 100%);
+  border-top: 4px solid var(--cardboard-dark);
+  border-bottom: 4px solid var(--cardboard-dark);
+}
+
+.gallery-intro {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  max-width: 600px;
+  margin-top: 16px;
+  color: #3a2510;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.gallery-card {
+  background: rgba(255,248,220,0.9);
+  border: 3px solid var(--cardboard-dark);
+  box-shadow: 5px 5px 0 rgba(0,0,0,0.25);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.gallery-card:hover {
+  transform: translate(-3px,-3px) rotate(-1deg);
+  box-shadow: 8px 8px 0 rgba(0,0,0,0.3);
+}
+
+.gallery-card::before {
+  content: '';
+  position: absolute;
+  top: -8px; left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  width: 60px; height: 18px;
+  background: var(--tape);
+  border: 1px solid rgba(180,160,80,0.5);
+  z-index: 2;
+}
+
+/* Real photo inside a card */
+.gallery-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+/* Placeholder when no photo yet */
+.gallery-img-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  font-family: 'Caveat', cursive;
+  font-size: 1rem;
+  color: rgba(60,40,20,0.5);
+  border-bottom: 2px dashed var(--cardboard-dark);
+}
+
+.gallery-img-placeholder svg { opacity: 0.4; }
+
+/* Caption area */
+.gallery-caption {
+  padding: 14px 16px 16px;
+}
+
+.gallery-caption-title {
+  font-family: 'Caveat', cursive;   /* Caveat here is intentional: book title accent */
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2c1810;
+  margin-bottom: 4px;
+}
+
+.gallery-caption-meta {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.82rem;
+  color: #7a5030;
+}
+
+
+/* ────────────────────────────────────────────────────────────────
+   10. CONTACT & FELLOW SECTION
+   ──────────────────────────────────────────────────────────────── */
+#contact {
+  padding: 90px 40px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-top: 44px;
+  align-items: start;
+}
+
+.contact-info-card {
+  background: rgba(255,248,220,0.9);
+  border: 3px solid var(--cardboard-dark);
+  padding: 36px;
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.contact-info-card::before {
+  content: '';
+  position: absolute;
+  top: -10px; right: 30px;
+  width: 80px; height: 20px;
+  background: var(--tape);
+  border: 1px solid rgba(180,160,80,0.5);
+  transform: rotate(2deg);
+}
+
+/* Contact card heading — Abril Fatface */
+.contact-info-card h3 {
+  font-family: 'Abril Fatface', serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+
+.contact-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.contact-icon {
+  width: 36px; height: 36px;
+  border-radius: 4px;
+  border: 2px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+}
+
+.contact-detail p      { font-family: 'Lato', sans-serif; line-height: 1.5; font-size: 0.95rem; }
+.contact-detail strong { font-family: 'Lato', sans-serif; font-weight: 700; font-size: 1rem; }
+
+.fellow-card {
+  background: var(--ink);
+  color: var(--cardboard-light);
+  border: 3px solid var(--cardboard-dark);
+  padding: 36px;
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.4);
+  position: relative;
+}
+
+.fellow-card::before {
+  content: '';
+  position: absolute;
+  top: -10px; left: 40px;
+  width: 90px; height: 20px;
+  background: var(--tape);
+  border: 1px solid rgba(180,160,80,0.5);
+  transform: rotate(-2deg);
+}
+
+/* Fellow card heading — Abril Fatface, yellow on dark bg */
+.fellow-card h3 {
+  font-family: 'Abril Fatface', serif;
+  font-size: 1.7rem;
+  font-weight: 400;
+  margin-bottom: 12px;
+  color: var(--yellow);
+}
+
+.fellow-card p {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.97rem;
+  line-height: 1.7;
+  color: var(--cardboard-light);
+  margin-bottom: 24px;
+}
+
+.fellow-perks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.fellow-perks li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: var(--cardboard-light);
+}
+
+.fellow-perks li::before {
+  content: '★';
+  color: var(--yellow);
+  font-size: 0.9rem;
+}
+
+
+/* ────────────────────────────────────────────────────────────────
+   11. FOOTER
+   ──────────────────────────────────────────────────────────────── */
+footer {
+  background: rgba(44,24,16,0.95);
+  color: var(--cardboard-light);
+  padding: 50px 40px 30px;
+  position: relative;
+  z-index: 1;
+  border-top: 4px solid var(--cardboard-dark);
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 50px;
+}
+
+.footer-brand h3 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.4rem;
+  color: var(--yellow);
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.footer-brand p {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--cardboard-mid);
+  max-width: 280px;
+}
+
+.footer-links h4 {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--cardboard-light);
+  margin-bottom: 14px;
+  border-bottom: 2px solid var(--cardboard-dark);
+  padding-bottom: 6px;
+}
+
+.footer-links ul { list-style: none; }
+.footer-links li { margin-bottom: 8px; }
+
+.footer-links a {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  color: var(--cardboard-mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--yellow); }
+
+.footer-bottom {
+  max-width: 1100px;
+  margin: 30px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(200,169,110,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.8rem;
+  color: var(--cardboard-dark);
+}
+
+
+/* ────────────────────────────────────────────────────────────────
+   12. ANIMATIONS & UTILITIES
+   ──────────────────────────────────────────────────────────────── */
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.pin {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(0,0,0,0.4);
+  position: absolute;
+  z-index: 4;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+
+/* ────────────────────────────────────────────────────────────────
+   13. RESPONSIVE
+   ──────────────────────────────────────────────────────────────── */
+@media (max-width: 820px) {
+  nav { padding: 12px 20px; }
+  .nav-links { gap: 6px; flex-wrap: wrap; }
+
+  .about-grid,
+  .contact-grid,
+  .footer-inner { grid-template-columns: 1fr; }
+
+  section { padding: 70px 24px; }
+  .section-title { font-size: 2.4rem; }
+  .hero-logo-img { max-width: 100%; }
+
+  .fellows-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+}

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<!--
+  ================================================================
+  FILE: index.html
+  PROJECT: Memphis Cartoneras Website
+  ----------------------------------------------------------------
+  CHANGES FROM PREVIOUS VERSION:
+    ✓ Fonts fixed — Abril Fatface for headers (readable, no cursive),
+      Lato for body text (clean, readable), Caveat only for accents
+    ✓ Gallery rebuilt — data-driven JS array, add a book in 3 lines
+    ✓ History section now has a Fellows Photo gallery
+    ✓ Book 1 image reference corrected
+
+  FILES THIS PAGE DEPENDS ON:
+    css/styles.css   — all visual styling and layout
+    js/main.js       — smooth-scroll + gallery renderer
+    images/logo.png  — transparent Memphis Cartoneras logo
+  ================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Memphis Cartoneras</title>
+
+  <!--
+    Google Fonts:
+      Abril Fatface    → bold display headings (no cursive — pure block letterforms)
+      Lato             → clean readable body text and nav
+      Caveat           → handwritten accent only (taglines, tape labels)
+      Permanent Marker → scrapbook accent labels
+  -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@400;700;900&family=Caveat:wght@400;600;700&family=Permanent+Marker&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+
+<!-- ================================================================
+     NAVIGATION
+     ================================================================ -->
+<nav>
+  <a class="nav-logo" href="#hero">
+    <img
+      src="images/logo-hero.png"
+      alt="Memphis Cartoneras logo — colorful book with sun rays"
+      class="nav-logo-img"
+    />
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#history">Origins</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact">Apply</a></li>
+  </ul>
+</nav>
+
+
+<!-- ================================================================
+     HERO SECTION
+     ================================================================ -->
+<section id="hero">
+  <div class="hero-bg-splash splash-1"></div>
+  <div class="hero-bg-splash splash-2"></div>
+  <div class="hero-bg-splash splash-3"></div>
+
+  <div class="logo-container">
+    <img
+      src="images/logo-hero.png"
+      alt="Memphis Cartoneras — colorful book logo with sun and rainbow lettering"
+      class="hero-logo-img"
+    />
+  </div>
+
+  <p class="hero-tagline">Handmaking books. Nurturing literacy. Recycling cardboard.</p>
+
+  <div class="hero-buttons">
+    <a href="#about"   class="btn btn-story">Our Story</a>
+    <a href="#gallery" class="btn btn-gallery">Student Work</a>
+    <a href="#contact" class="btn btn-apply">Become a Fellow</a>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     ABOUT SECTION
+     ================================================================ -->
+<section id="about">
+  <div class="section-inner">
+    <span class="section-label">Who We Are</span>
+    <h2 class="section-title underline-red">About Memphis Cartoneras</h2>
+
+    <div class="about-grid">
+
+      <div class="about-card">
+        <h3>📚 Our Mission</h3>
+        <p>
+          Memphis Cartoneras is a cooperative publishing house dedicated to nurturing
+          literacy and creative expression among students through the art of
+          handmade bookmaking. Using reclaimed and reused cardboard, our students
+          don't just read books, they <em>build</em> them.
+        </p>
+        <p style="margin-top:14px;">
+          Every book produced in our workshops is a one-of-a-kind artifact: a
+          testament to imagination, sustainability, and the transformative power
+          of storytelling. We believe that when students hold a book they have
+          made with their own hands, something extraordinary happens.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3>🌿 What We Stand For</h3>
+        <div class="about-values">
+          <div class="value-chip">
+            <div class="value-dot" style="background:var(--red);"></div>
+            Literacy as empowerment
+          </div>
+          <div class="value-chip">
+            <div class="value-dot" style="background:var(--teal);"></div>
+            Creativity without limits
+          </div>
+          <div class="value-chip">
+            <div class="value-dot" style="background:var(--blue);"></div>
+            Community &amp; cooperation
+          </div>
+          <div class="value-chip">
+            <div class="value-dot" style="background:var(--orange);"></div>
+            Sustainability &amp; reuse
+          </div>
+          <div class="value-chip">
+            <div class="value-dot" style="background:var(--purple);"></div>
+            Student voices amplified
+          </div>
+          <div class="value-chip">
+            <div class="value-dot" style="background:var(--green);"></div>
+            Accessible publishing for all
+          </div>
+        </div>
+      </div>
+
+      <div class="about-card" style="grid-column: 1 / -1;">
+        <h3>✂ The Cartonera Tradition</h3>
+        <p>
+          The cartonera movement began in Buenos Aires in the early 2000s by
+          writers and artists Washington Cucurto, Javier Barilaro, and Fernando Laguna.
+          It started as a grassroots response to economic crisis and cultural hunger,
+          aimed at promoting literacy, affordable literature, and sustainability.
+        </p>
+        <p style="margin-top:12px;">
+          Memphis Cartoneras carries that spirit forward: rooted in Memphis,
+          connected to a global tradition of community publishing, and committed
+          to making literary creation an act of joy and resistance.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     HISTORY / ORIGINS SECTION
+     Now includes a Fellows Photo Gallery subsection.
+     ================================================================ -->
+<section id="history">
+  <div class="section-inner">
+
+    <span class="section-label">How We Got Here</span>
+    <h2 class="section-title underline-teal">Our Origins &amp; Journey</h2>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--red);"></div>
+        <div class="timeline-card">
+          <div class="timeline-year">The Beginning</div>
+          <h3>The Spark in Memphis</h3>
+          <p>
+            Memphis Cartoneras was founded by a professor at Rhodes College with
+            a deep belief that storytelling belongs to everyone. Inspired by Latin
+            American cartonera cooperatives, the idea was to bring handmade,
+            community-published books to students in Memphis, a city with rich
+            literary and musical traditions that often go unrecorded and unpublished.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--teal);"></div>
+        <div class="timeline-card">
+          <div class="timeline-year">Growing Roots</div>
+          <h3>First Workshops &amp; Books</h3>
+          <p>
+            The first cohort of student fellows gathered around a table covered
+            in cardboard, scissors, glue, and paint. They wrote stories. They
+            cut covers. They bound pages together with their own hands. The
+            result was a small run of handmade books that circulated through
+            classrooms and community spaces.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--orange);"></div>
+        <div class="timeline-card">
+          <div class="timeline-year">Expanding</div>
+          <h3>A Community Takes Shape</h3>
+          <p>
+            What started as a small workshop grew into a cooperative with
+            multiple cohorts of fellows, community partners, and a growing
+            library of student-made books. Memphis Cartoneras began hosting
+            public readings, bookmaking workshops for K–12 students, and
+            events celebrating local voices.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--blue);"></div>
+        <div class="timeline-card">
+          <div class="timeline-year">Today</div>
+          <h3>A Living, Growing Press</h3>
+          <p>
+            Memphis Cartoneras continues to grow, publishing new works each
+            semester, training new fellows, and connecting students to a global
+            tradition of grassroots literary publishing. Every book we make is
+            a piece of Memphis history, crafted by the people who live it.
+          </p>
+        </div>
+      </div>
+
+    </div><!-- end .timeline -->
+
+    <!-- ============================================================
+         FELLOWS PHOTO GALLERY
+         ============================================================
+         HOW TO ADD A FELLOW PHOTO:
+           1. Place your photo in: images/fellows/
+           2. Copy one <div class="fellow-photo-card"> block below
+           3. Update src, alt, name, cohort, and role fields
+         ============================================================ -->
+    <div class="fellows-section">
+      <span class="section-label" style="margin-top: 60px; display:block;">The People Behind the Press</span>
+      <h3 class="fellows-heading">Original Cartonera Fellows</h3>
+      <p class="fellows-intro">
+        These are the students who showed up, cut cardboard, mixed paint, and made something
+        out of nothing. Every book in our library exists because of them.
+      </p>
+
+      <!-- Fellows photo grid -->
+      <div class="fellows-grid" id="fellows-grid">
+
+        <!--
+          ★ TO ADD A FELLOW: copy this block and fill in the details.
+          Place photo in images/fellows/firstname-lastname.jpg
+        -->
+
+        <!-- FELLOW 1 — replace with real photo + info -->
+        <div class="fellow-photo-card">
+          <div class="fellow-photo-placeholder">
+            <svg width="40" height="40" fill="none" stroke="rgba(60,40,20,0.4)" stroke-width="1.5" viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+            </svg>
+            <span>Add photo</span>
+          </div>
+          <!--
+            Replace the placeholder div above with:
+            <img src="images/fellows/firstname-lastname.jpg"
+                 alt="Fellow Name"
+                 class="fellow-photo-img">
+          -->
+          <div class="fellow-photo-caption">
+            <strong>Fellow Name</strong>
+            <span>Cohort Year · Role</span>
+          </div>
+        </div>
+
+        <!-- FELLOW 2 -->
+        <div class="fellow-photo-card">
+          <div class="fellow-photo-placeholder">
+            <svg width="40" height="40" fill="none" stroke="rgba(60,40,20,0.4)" stroke-width="1.5" viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+            </svg>
+            <span>Add photo</span>
+          </div>
+          <div class="fellow-photo-caption">
+            <strong>Fellow Name</strong>
+            <span>Cohort Year · Role</span>
+          </div>
+        </div>
+
+        <!-- FELLOW 3 -->
+        <div class="fellow-photo-card">
+          <div class="fellow-photo-placeholder">
+            <svg width="40" height="40" fill="none" stroke="rgba(60,40,20,0.4)" stroke-width="1.5" viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+            </svg>
+            <span>Add photo</span>
+          </div>
+          <div class="fellow-photo-caption">
+            <strong>Fellow Name</strong>
+            <span>Cohort Year · Role</span>
+          </div>
+        </div>
+
+        <!-- FELLOW 4 -->
+        <div class="fellow-photo-card">
+          <div class="fellow-photo-placeholder">
+            <svg width="40" height="40" fill="none" stroke="rgba(60,40,20,0.4)" stroke-width="1.5" viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+            </svg>
+            <span>Add photo</span>
+          </div>
+          <div class="fellow-photo-caption">
+            <strong>Fellow Name</strong>
+            <span>Cohort Year · Role</span>
+          </div>
+        </div>
+
+        <!-- FELLOW 5 -->
+        <div class="fellow-photo-card">
+          <div class="fellow-photo-placeholder">
+            <svg width="40" height="40" fill="none" stroke="rgba(60,40,20,0.4)" stroke-width="1.5" viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+            </svg>
+            <span>Add photo</span>
+          </div>
+          <div class="fellow-photo-caption">
+            <strong>Fellow Name</strong>
+            <span>Cohort Year · Role</span>
+          </div>
+        </div>
+
+        <!-- FELLOW 6 -->
+        <div class="fellow-photo-card">
+          <div class="fellow-photo-placeholder">
+            <svg width="40" height="40" fill="none" stroke="rgba(60,40,20,0.4)" stroke-width="1.5" viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+            </svg>
+            <span>Add photo</span>
+          </div>
+          <div class="fellow-photo-caption">
+            <strong>Fellow Name</strong>
+            <span>Cohort Year · Role</span>
+          </div>
+        </div>
+
+      </div><!-- end .fellows-grid -->
+    </div><!-- end .fellows-section -->
+
+  </div>
+</section>
+
+
+<!-- ================================================================
+     GALLERY SECTION
+     ================================================================
+     HOW TO ADD A NEW BOOK — edit js/main.js ONLY.
+     Find the BOOKS array near the top of that file and add one
+     object. You do NOT need to touch this HTML at all.
+
+     Example entry to add:
+       {
+         img:    "images/gallery/your-book-filename.jpg",
+         title:  "Book Title Here",
+         student:"Student Name",
+         date:   "Spring 2025"
+       },
+
+     The page will automatically render a card for every entry.
+     ================================================================ -->
+<section id="gallery">
+  <div class="section-inner">
+
+    <span class="section-label">Student Work</span>
+    <h2 class="section-title underline-orange">Gallery</h2>
+
+    <p class="gallery-intro">
+      Every book here was imagined, written, illustrated, and bound by a student
+      at Memphis Cartoneras. These aren't just projects — they're published works.
+    </p>
+
+    <!-- Cards are injected here by js/main.js -->
+    <div class="gallery-grid" id="gallery-grid"></div>
+
+  </div>
+</section>
+
+
+<!-- ================================================================
+     CONTACT & APPLY SECTION
+     ================================================================ -->
+<section id="contact">
+  <div class="section-inner">
+
+    <span class="section-label">Get In Touch</span>
+    <h2 class="section-title underline-blue">Contact &amp; Apply</h2>
+
+    <div class="contact-grid">
+
+      <div class="contact-info-card">
+        <h3>📬 Reach the Professor</h3>
+
+        <div class="contact-detail">
+          <div class="contact-icon" style="background:rgba(192,57,43,0.12); border-color:var(--red);">✉</div>
+          <div>
+            <strong>Email</strong>
+            <p>
+              <a href="mailto:PettinaroliE@rhodes.edu" style="color:var(--blue); text-decoration:none;">
+                PettinaroliE@rhodes.edu
+              </a><br>
+              <span style="font-size:0.82rem; color:#7a5030;">We'll get back to you within 2–3 business days.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-icon" style="background:rgba(26,122,110,0.12); border-color:var(--teal);">🏛</div>
+          <div>
+            <strong>Office</strong>
+            <p>Department of Modern Languages<br>Rhodes College<br>Memphis, TN</p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-icon" style="background:rgba(36,113,163,0.12); border-color:var(--blue);">⏰</div>
+          <div>
+            <strong>Office Hours</strong>
+            <p>By appointment — please email to schedule.<br>
+            <span style="font-size:0.82rem; color:#7a5030;">In-person and virtual appointments available.</span></p>
+          </div>
+        </div>
+
+        <div style="margin-top:24px; padding-top:20px; border-top:2px dashed var(--cardboard-mid);">
+          <p class="accent-font" style="font-size:1.05rem; color:#5a3a20;">
+            Questions about workshops, partnerships, or how to bring Memphis Cartoneras
+            to your classroom? We'd love to hear from you.
+          </p>
+        </div>
+      </div>
+
+      <div class="fellow-card">
+        <h3>✦ Become a Fellow</h3>
+        <p>
+          Memphis Cartoneras Fellows are the heart of our cooperative. As a fellow,
+          you'll work alongside other students to write, illustrate, and publish
+          original works, and help teach bookmaking to the wider community.
+        </p>
+        <ul class="fellow-perks">
+          <li>Hands-on bookmaking &amp; publishing experience</li>
+          <li>Mentorship from faculty and visiting authors</li>
+          <li>Published work in the Cartoneras library</li>
+          <li>Community engagement &amp; outreach opportunities</li>
+          <li>A portfolio of handmade, published books</li>
+        </ul>
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfpe49n6ZGiC7H_6OawXZYnUmEd2d7A0L6Kb_6L87bALxhISQ/viewform?usp=header"
+          target="_blank"
+          class="btn btn-apply"
+          style="display:inline-block;"
+        >
+          Apply to Be a Fellow
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer>
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+      <h3>✂ Memphis Cartoneras</h3>
+      <p>A cooperative publishing house making books from reclaimed cardboard and making readers and writers out of students in Memphis, Tennessee.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#history">Origins</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <h4>Get Involved</h4>
+      <ul>
+        <li><a href="#contact">Apply to be a Fellow</a></li>
+        <li><a href="#contact">Partner With Us</a></li>
+        <li><a href="#contact">Book a Workshop</a></li>
+        <li><a href="mailto:PettinaroliE@rhodes.edu">Email Us</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <span>© Memphis Cartoneras — Made with cardboard &amp; care in Memphis, TN</span>
+    <span style="font-family:'Permanent Marker',cursive; color:var(--cardboard-dark);">✂ ✦ ✂</span>
+  </div>
+</footer>
+
+
+<script src="js/main.js"></script>
+</body>
+</html>
