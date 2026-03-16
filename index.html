@@ -31,7 +31,7 @@
       Permanent Marker → scrapbook accent labels
   -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@400;700;900&family=Caveat:wght@400;600;700&family=Permanent+Marker&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@400;700;900&family=Indie+Flower&family=Permanent+Marker&display=swap"
     rel="stylesheet"
   />
 
@@ -237,12 +237,14 @@
     </div><!-- end .timeline -->
 
     <!-- ============================================================
-         FELLOWS PHOTO GALLERY
+         FELLOWS GROUP PHOTOS
+         3 group photos — no individual names, just the cohort together.
          ============================================================
-         HOW TO ADD A FELLOW PHOTO:
-           1. Place your photo in: images/fellows/
-           2. Copy one <div class="fellow-photo-card"> block below
-           3. Update src, alt, name, cohort, and role fields
+         HOW TO ADD A GROUP PHOTO:
+           Replace the .group-photo-placeholder div with:
+           <img src="images/fellows/group-cohort-1.jpg"
+                alt="Cartonera Fellows cohort"
+                class="group-photo-img">
          ============================================================ -->
     <div class="fellows-section">
       <span class="section-label" style="margin-top: 60px; display:block;">The People Behind the Press</span>
@@ -252,106 +254,115 @@
         out of nothing. Every book in our library exists because of them.
       </p>
 
-      <!-- Fellows photo grid -->
-      <div class="fellows-grid" id="fellows-grid">
+      <div class="group-photos-grid">
 
-        <!--
-          ★ TO ADD A FELLOW: copy this block and fill in the details.
-          Place photo in images/fellows/firstname-lastname.jpg
-        -->
-
-        <!-- FELLOW 1 — replace with real photo + info -->
-        <div class="fellow-photo-card">
-          <div class="fellow-photo-placeholder">
-            <svg width="40" height="40" fill="none" stroke="rgba(60,40,20,0.4)" stroke-width="1.5" viewBox="0 0 24 24">
-              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+        <!-- GROUP PHOTO 1 -->
+        <div class="group-photo-card">
+          <!-- Replace this div with <img src="images/fellows/group-1.jpg" alt="Fellows cohort" class="group-photo-img"> -->
+          <div class="group-photo-placeholder">
+            <svg width="44" height="44" fill="none" stroke="rgba(60,40,20,0.35)" stroke-width="1.5" viewBox="0 0 24 24">
+              <circle cx="9" cy="7" r="3"/><circle cx="15" cy="7" r="3"/>
+              <path d="M2 20c0-3.3 3.1-6 7-6s7 2.7 7 6"/><path d="M16 14c2.2.5 4 2.4 4 5"/>
             </svg>
-            <span>Add photo</span>
-          </div>
-          <!--
-            Replace the placeholder div above with:
-            <img src="images/fellows/firstname-lastname.jpg"
-                 alt="Fellow Name"
-                 class="fellow-photo-img">
-          -->
-          <div class="fellow-photo-caption">
-            <strong>Fellow Name</strong>
-            <span>Cohort Year · Role</span>
+            <span>Add group photo</span>
           </div>
         </div>
 
-        <!-- FELLOW 2 -->
-        <div class="fellow-photo-card">
-          <div class="fellow-photo-placeholder">
-            <svg width="40" height="40" fill="none" stroke="rgba(60,40,20,0.4)" stroke-width="1.5" viewBox="0 0 24 24">
-              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+        <!-- GROUP PHOTO 2 -->
+        <div class="group-photo-card">
+          <div class="group-photo-placeholder">
+            <svg width="44" height="44" fill="none" stroke="rgba(60,40,20,0.35)" stroke-width="1.5" viewBox="0 0 24 24">
+              <circle cx="9" cy="7" r="3"/><circle cx="15" cy="7" r="3"/>
+              <path d="M2 20c0-3.3 3.1-6 7-6s7 2.7 7 6"/><path d="M16 14c2.2.5 4 2.4 4 5"/>
             </svg>
-            <span>Add photo</span>
-          </div>
-          <div class="fellow-photo-caption">
-            <strong>Fellow Name</strong>
-            <span>Cohort Year · Role</span>
+            <span>Add group photo</span>
           </div>
         </div>
 
-        <!-- FELLOW 3 -->
-        <div class="fellow-photo-card">
-          <div class="fellow-photo-placeholder">
-            <svg width="40" height="40" fill="none" stroke="rgba(60,40,20,0.4)" stroke-width="1.5" viewBox="0 0 24 24">
-              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+        <!-- GROUP PHOTO 3 -->
+        <div class="group-photo-card">
+          <div class="group-photo-placeholder">
+            <svg width="44" height="44" fill="none" stroke="rgba(60,40,20,0.35)" stroke-width="1.5" viewBox="0 0 24 24">
+              <circle cx="9" cy="7" r="3"/><circle cx="15" cy="7" r="3"/>
+              <path d="M2 20c0-3.3 3.1-6 7-6s7 2.7 7 6"/><path d="M16 14c2.2.5 4 2.4 4 5"/>
             </svg>
-            <span>Add photo</span>
-          </div>
-          <div class="fellow-photo-caption">
-            <strong>Fellow Name</strong>
-            <span>Cohort Year · Role</span>
+            <span>Add group photo</span>
           </div>
         </div>
 
-        <!-- FELLOW 4 -->
-        <div class="fellow-photo-card">
-          <div class="fellow-photo-placeholder">
-            <svg width="40" height="40" fill="none" stroke="rgba(60,40,20,0.4)" stroke-width="1.5" viewBox="0 0 24 24">
-              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-            </svg>
-            <span>Add photo</span>
-          </div>
-          <div class="fellow-photo-caption">
-            <strong>Fellow Name</strong>
-            <span>Cohort Year · Role</span>
-          </div>
-        </div>
-
-        <!-- FELLOW 5 -->
-        <div class="fellow-photo-card">
-          <div class="fellow-photo-placeholder">
-            <svg width="40" height="40" fill="none" stroke="rgba(60,40,20,0.4)" stroke-width="1.5" viewBox="0 0 24 24">
-              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-            </svg>
-            <span>Add photo</span>
-          </div>
-          <div class="fellow-photo-caption">
-            <strong>Fellow Name</strong>
-            <span>Cohort Year · Role</span>
-          </div>
-        </div>
-
-        <!-- FELLOW 6 -->
-        <div class="fellow-photo-card">
-          <div class="fellow-photo-placeholder">
-            <svg width="40" height="40" fill="none" stroke="rgba(60,40,20,0.4)" stroke-width="1.5" viewBox="0 0 24 24">
-              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-            </svg>
-            <span>Add photo</span>
-          </div>
-          <div class="fellow-photo-caption">
-            <strong>Fellow Name</strong>
-            <span>Cohort Year · Role</span>
-          </div>
-        </div>
-
-      </div><!-- end .fellows-grid -->
+      </div><!-- end .group-photos-grid -->
     </div><!-- end .fellows-section -->
+
+    <!-- ============================================================
+         PROFESSOR PETTINAROLLI SECTION
+         ============================================================ -->
+    <div class="professor-section">
+      <span class="section-label" style="margin-top: 60px; display:block;">Meet the Founder</span>
+      <h3 class="fellows-heading">Professor Pettinarolli</h3>
+
+      <div class="professor-card">
+
+        <!-- Left: photo -->
+        <div class="professor-photo-col">
+          <!-- Replace placeholder with:
+               <img src="images/professor-pettinarolli.jpg"
+                    alt="Professor Pettinarolli"
+                    class="professor-photo-img">
+          -->
+          <div class="professor-photo-placeholder">
+            <svg width="52" height="52" fill="none" stroke="rgba(60,40,20,0.35)" stroke-width="1.5" viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+            </svg>
+            <span>Add photo</span>
+          </div>
+        </div>
+
+        <!-- Right: bio + contributions -->
+        <div class="professor-bio-col">
+          <h4 class="professor-name">Elena Pettinarolli</h4>
+          <p class="professor-title">Department of Modern Languages · Rhodes College</p>
+
+          <p class="professor-bio">
+            Professor Pettinarolli founded Memphis Cartoneras out of a conviction that
+            literary creation belongs to everyone — not just those with access to
+            traditional publishing. Drawing on her scholarship in Latin American literature
+            and her deep ties to the cartonera movement in Buenos Aires, she brought
+            the cooperative bookmaking model to Memphis and built it into a living
+            community press.
+          </p>
+
+          <div class="professor-contributions">
+            <div class="professor-contrib-item">
+              <div class="contrib-dot" style="background:var(--teal);"></div>
+              <div>
+                <strong>Scholarship &amp; Research</strong>
+                <p>Her academic work centers on grassroots publishing, Latin American literature,
+                and the politics of literacy — the intellectual foundation Memphis Cartoneras is built on.</p>
+              </div>
+            </div>
+            <div class="professor-contrib-item">
+              <div class="contrib-dot" style="background:var(--red);"></div>
+              <div>
+                <strong>Fellowship Design</strong>
+                <p>Professor Pettinarolli created and continues to shape the Fellows program —
+                the curriculum, the workshops, the community partnerships, and the publishing process.</p>
+              </div>
+            </div>
+            <div class="professor-contrib-item">
+              <div class="contrib-dot" style="background:var(--orange);"></div>
+              <div>
+                <strong>Personal Projects &amp; Vision</strong>
+                <p>
+                  ★ <em>Add Professor Pettinarolli's personal projects, published works,
+                  or ongoing initiatives here.</em>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end .professor-card -->
+    </div><!-- end .professor-section -->
 
   </div>
 </section>
@@ -411,8 +422,8 @@
           <div>
             <strong>Email</strong>
             <p>
-              <a href="mailto:PettinaroliE@rhodes.edu" style="color:var(--blue); text-decoration:none;">
-                PettinaroliE@rhodes.edu
+              <a href="/cdn-cgi/l/email-protection#d181b4a5a5b8bfb0a3bebdb89491a3b9beb5b4a2ffb4b5a4" style="color:var(--blue); text-decoration:none;">
+                <span class="__cf_email__" data-cfemail="7f2f1a0b0b16111e0d1013163a3f0d17101b1a0c511a1b0a">[email&#160;protected]</span>
               </a><br>
               <span style="font-size:0.82rem; color:#7a5030;">We'll get back to you within 2–3 business days.</span>
             </p>
@@ -500,19 +511,11 @@
         <li><a href="#contact">Apply to be a Fellow</a></li>
         <li><a href="#contact">Partner With Us</a></li>
         <li><a href="#contact">Book a Workshop</a></li>
-        <li><a href="mailto:PettinaroliE@rhodes.edu">Email Us</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#4a1a2f3e3e23242b382526230f0a3822252e2f39642f2e3f">Email Us</a></li>
       </ul>
     </div>
 
   </div>
 
   <div class="footer-bottom">
-    <span>© Memphis Cartoneras — Made with cardboard &amp; care in Memphis, TN</span>
-    <span style="font-family:'Permanent Marker',cursive; color:var(--cardboard-dark);">✂ ✦ ✂</span>
-  </div>
-</footer>
-
-
-<script src="js/main.js"></script>
-</body>
-</html>
+    <span>© Memphis Cartoneras — Made with cardboard &amp; care in Memphis,

@@ -100,7 +100,7 @@ body::after {
 
 /* Utility class for accent/handwritten elements only */
 .accent-font {
-  font-family: 'Caveat', cursive;
+  font-family: 'Indie Flower', cursive;
 }
 
 
@@ -114,7 +114,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 40px;
+  padding: 8px 40px;
   background: rgba(120,80,30,0.92);
   border-bottom: 3px solid var(--cardboard-dark);
   box-shadow: 0 4px 20px rgba(0,0,0,0.35);
@@ -128,10 +128,11 @@ nav {
 }
 
 .nav-logo-img {
-  height: 52px;
-  width: 52px;
+  height: 68px;
+  width: auto;
+  max-width: 160px;
   object-fit: contain;
-  border-radius: 50%;
+  border-radius: 0;           /* logo has its own shape — no circle crop */
   display: block;
   filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
   transition: transform 0.2s;
@@ -207,7 +208,7 @@ nav {
   justify-content: center;
   position: relative;
   z-index: 1;
-  padding: 100px 40px 60px;
+  padding: 90px 40px 40px;    /* tighter bottom padding */
   text-align: center;
   overflow: hidden;
 }
@@ -240,30 +241,30 @@ nav {
 .logo-container {
   position: relative;
   z-index: 2;
-  margin-bottom: 24px;
+  margin-bottom: 16px;        /* tighter gap below logo */
   animation: floatIn 1s ease both;
 }
 
 .hero-logo-img {
-  max-width: 680px;
-  width: 90%;
+  max-width: 560px;           /* slightly smaller logo */
+  width: 85%;
   position: relative;
   z-index: 2;
   animation: floatIn 1s ease both;
 }
 
-/* Tagline uses Caveat — this IS an intentional accent element */
+/* Tagline strip — smaller, less imposing */
 .hero-tagline {
-  font-family: 'Caveat', cursive;
-  font-size: 1.6rem;
-  font-weight: 600;
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.25rem;         /* smaller than before */
+  font-weight: 400;
   color: var(--ink);
-  margin-top: 28px;
+  margin-top: 16px;           /* tighter gap */
   position: relative;
   z-index: 2;
   background: rgba(255,235,150,0.8);
   display: inline-block;
-  padding: 6px 20px;
+  padding: 4px 16px;          /* slimmer padding */
   border: 2px solid var(--cardboard-dark);
   transform: rotate(-1deg);
   box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
@@ -273,7 +274,7 @@ nav {
 .hero-buttons {
   display: flex;
   gap: 16px;
-  margin-top: 36px;
+  margin-top: 24px;           /* tighter gap above buttons */
   flex-wrap: wrap;
   justify-content: center;
   z-index: 2;
@@ -590,15 +591,51 @@ section {
   margin-bottom: 36px;
 }
 
-/* Grid of fellow photo cards — responsive auto-fill */
-.fellows-grid {
+/* ────────────────────────────────────────────────────────────────
+   8b. FELLOWS GROUP PHOTOS + PROFESSOR SECTION (inside #history)
+   ──────────────────────────────────────────────────────────────── */
+.fellows-section {
+  margin-top: 70px;
+  padding-top: 50px;
+  border-top: 4px dashed var(--cardboard-dark);
+}
+
+.fellows-heading {
+  font-family: 'Abril Fatface', serif;
+  font-size: 2rem;
+  color: var(--ink);
+  margin-top: 10px;
+  margin-bottom: 12px;
+  position: relative;
+  display: inline-block;
+}
+
+.fellows-heading::after {
+  content: '';
+  display: block;
+  height: 5px;
+  background: var(--teal);
+  border-radius: 3px;
+  margin-top: 4px;
+}
+
+.fellows-intro {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: #3a2510;
+  line-height: 1.7;
+  max-width: 620px;
+  margin-bottom: 30px;
+}
+
+/* 3-column group photo grid */
+.group-photos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
-/* Individual fellow card */
-.fellow-photo-card {
+.group-photo-card {
   background: rgba(255,248,220,0.9);
   border: 3px solid var(--cardboard-dark);
   box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
@@ -607,71 +644,179 @@ section {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.fellow-photo-card:hover {
-  transform: translate(-2px, -2px) rotate(-1deg);
+.group-photo-card:hover {
+  transform: translate(-2px, -2px) rotate(-0.5deg);
   box-shadow: 6px 6px 0 rgba(0,0,0,0.3);
 }
 
-/* Tape strip on each fellow card */
-.fellow-photo-card::before {
+/* Tape strip on each group photo card */
+.group-photo-card::before {
   content: '';
   position: absolute;
   top: -7px; left: 50%;
-  transform: translateX(-50%) rotate(-1.5deg);
-  width: 50px; height: 16px;
+  transform: translateX(-50%) rotate(-1deg);
+  width: 60px; height: 16px;
   background: var(--tape);
   border: 1px solid rgba(180,160,80,0.5);
   z-index: 2;
 }
 
-/* The actual photo — square crop */
-.fellow-photo-img {
+.group-photo-img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   display: block;
 }
 
-/* Placeholder shown before photo is added */
-.fellow-photo-placeholder {
+.group-photo-placeholder {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  background: rgba(200,169,110,0.2);
-  border-bottom: 2px dashed var(--cardboard-dark);
-  font-family: 'Caveat', cursive;
+  gap: 10px;
+  background: rgba(200,169,110,0.15);
+  font-family: 'Indie Flower', cursive;
   font-size: 0.9rem;
-  color: rgba(60,40,20,0.5);
+  color: rgba(60,40,20,0.45);
 }
 
-/* Fellow name + cohort caption */
-.fellow-photo-caption {
-  padding: 10px 12px 12px;
+/* ── PROFESSOR SECTION ── */
+.professor-section {
+  margin-top: 60px;
+  padding-top: 50px;
+  border-top: 4px dashed var(--cardboard-dark);
+}
+
+.professor-card {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 40px;
+  background: rgba(255,248,220,0.88);
+  border: 3px solid var(--cardboard-dark);
+  padding: 36px;
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.2);
+  position: relative;
+  margin-top: 24px;
+  align-items: start;
+}
+
+/* Tape on professor card */
+.professor-card::before {
+  content: '';
+  position: absolute;
+  top: -10px; left: 40px;
+  width: 80px; height: 20px;
+  background: var(--tape);
+  border: 1px solid rgba(180,160,80,0.5);
+  transform: rotate(-1.5deg);
+  z-index: 2;
+}
+
+.professor-photo-img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+  border: 3px solid var(--cardboard-dark);
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+}
+
+.professor-photo-placeholder {
+  width: 100%;
+  aspect-ratio: 3 / 4;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(200,169,110,0.2);
+  border: 3px dashed var(--cardboard-dark);
+  font-family: 'Indie Flower', cursive;
+  font-size: 0.9rem;
+  color: rgba(60,40,20,0.45);
 }
 
-.fellow-photo-caption strong {
+.professor-name {
+  font-family: 'Abril Fatface', serif;
+  font-size: 1.7rem;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.professor-title {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--teal);
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--cardboard-mid);
+}
+
+.professor-bio {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: #2c1810;
+  margin-bottom: 24px;
+}
+
+.professor-contributions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.professor-contrib-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.contrib-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.professor-contrib-item strong {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 3px;
+}
+
+.professor-contrib-item p {
   font-family: 'Lato', sans-serif;
   font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--ink);
+  line-height: 1.7;
+  color: #4a3020;
+  margin: 0;
 }
 
-.fellow-photo-caption span {
-  font-family: 'Lato', sans-serif;
-  font-size: 0.78rem;
-  color: #7a5030;
+@media (max-width: 820px) {
+  .group-photos-grid {
+    grid-template-columns: 1fr;
+  }
+  .professor-card {
+    grid-template-columns: 1fr;
+  }
+  .professor-photo-placeholder,
+  .professor-photo-img {
+    aspect-ratio: 4 / 3;
+    max-width: 280px;
+    margin: 0 auto;
+  }
 }
-
-
-/* ────────────────────────────────────────────────────────────────
-   9. GALLERY SECTION
    Cards are rendered by js/main.js from the BOOKS array.
    ──────────────────────────────────────────────────────────────── */
 #gallery {
@@ -753,7 +898,7 @@ section {
 }
 
 .gallery-caption-title {
-  font-family: 'Caveat', cursive;   /* Caveat here is intentional: book title accent */
+  font-family: 'Indie Flower', cursive;
   font-size: 1.1rem;
   font-weight: 700;
   color: #2c1810;

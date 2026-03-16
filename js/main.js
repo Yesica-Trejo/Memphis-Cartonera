@@ -103,7 +103,7 @@ function renderGallery() {
       '<svg width="48" height="48" fill="none" stroke="rgba(120,80,30,0.3)" stroke-width="1.5" viewBox="0 0 24 24">' +
         '<circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/>' +
       '</svg>' +
-      '<span style="font-family:\'Caveat\',cursive; font-size:1rem; color:rgba(80,50,20,0.5);">More coming soon</span>' +
+      '<span style="font-family:\'Indie Flower\',cursive; font-size:1rem; color:rgba(80,50,20,0.5);">More coming soon</span>' +
     '</div>' +
     '<div class="gallery-caption">' +
       '<div style="height:1px; background:var(--cardboard-dark); opacity:0.15; width:80%; margin-bottom:8px;"></div>' +
