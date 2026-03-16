@@ -117,6 +117,8 @@ renderGallery();
 
 /* ────────────────────────────────────────────────────────────────
    SMOOTH SCROLL
+   Offsets scroll position by nav height (88px) so content isn't
+   hidden behind the fixed nav bar. Works for sections and divs.
    ──────────────────────────────────────────────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(function(link) {
   link.addEventListener('click', function(event) {
@@ -124,7 +126,9 @@ document.querySelectorAll('a[href^="#"]').forEach(function(link) {
     var targetEl = document.querySelector(targetId);
     if (targetEl) {
       event.preventDefault();
-      targetEl.scrollIntoView({ behavior: 'smooth' });
+      var navHeight = document.querySelector('nav').offsetHeight;
+      var top = targetEl.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+      window.scrollTo({ top: top, behavior: 'smooth' });
     }
   });
 });

@@ -170,29 +170,23 @@ nav {
 }
 
 .nav-links li:nth-child(1) a {
-  background-color: #1a7a6e; color: #FFE01A;
+  background-color: #1a7a6e; color: #FFE01A;     /* teal — About */
   background-image: repeating-linear-gradient(90deg,transparent,transparent 5px,rgba(255,255,255,0.1) 5px,rgba(255,255,255,0.1) 6px);
   transform: rotate(-1.5deg);
 }
 .nav-links li:nth-child(2) a {
-  background-color: #d94f3d; color: #FFE01A;
-  background-image: radial-gradient(circle,rgba(255,255,255,0.25) 2px,transparent 2px);
-  background-size: 8px 8px;
+  background-color: #f6c90e; color: #1a2f5c;    /* yellow — Gallery */
+  background-image: repeating-linear-gradient(45deg,transparent,transparent 4px,rgba(0,0,0,0.08) 4px,rgba(0,0,0,0.08) 5px);
   transform: rotate(1deg);
 }
 .nav-links li:nth-child(3) a {
-  background-color: #f6c90e; color: #1a2f5c;
-  background-image: repeating-linear-gradient(45deg,transparent,transparent 4px,rgba(0,0,0,0.08) 4px,rgba(0,0,0,0.08) 5px);
+  background-color: #6c2f8a; color: #FF8C00;    /* purple — Meet the Founder */
   transform: rotate(-1deg);
 }
 .nav-links li:nth-child(4) a {
-  background-color: #6c2f8a; color: #FF8C00;
-  transform: rotate(1.5deg);
-}
-.nav-links li:nth-child(5) a {
-  background-color: #1e9e5e; color: #FFE01A;
+  background-color: #1e9e5e; color: #FFE01A;    /* green — Apply */
   background-image: repeating-linear-gradient(0deg,transparent,transparent 4px,rgba(255,255,255,0.1) 4px,rgba(255,255,255,0.1) 5px);
-  transform: rotate(-1deg);
+  transform: rotate(1deg);
   font-weight: 900;
 }
 
