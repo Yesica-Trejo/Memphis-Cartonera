@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<!--
+  ================================================================
+  FILE: index.html
+  PROJECT: Memphis Cartoneras Website
+  ----------------------------------------------------------------
+  This is the main (and only) HTML file for the site. It holds all
+  visible page content, organized into named sections:
+
+    1. <head>     — fonts, metadata, stylesheet link
+    2. <nav>      — fixed top navigation bar with logo + links
+    3. #hero      — full-screen landing area with logo + tagline
+    4. #about     — mission statement, values, cartonera history
+    5. #history   — vertical timeline of organizational origins
+    6. #gallery   — photo grid of student-made books (placeholders)
+    7. #contact   — professor info card + fellow application card
+    8. <footer>   — site links, brand blurb, copyright
+
+  BEFORE PUBLISHING — items marked ★ need to be updated:
+    ★ Replace professor@rhodes.edu with the real email address
+    ★ Replace the Google Form href with your actual application URL
+    ★ Swap gallery placeholder blocks with real <img> tags
+    ★ Update timeline text with accurate founding dates/events
+
+  FILES THIS PAGE DEPENDS ON:
+    css/styles.css   — all visual styling and layout
+    js/main.js       — smooth-scroll behavior + usage notes
+    images/logo.png  — transparent Memphis Cartoneras logo
+  ================================================================
+-->
+<html lang="en">
+<head>
+
+  <!-- Character encoding — must be first; ensures text renders correctly -->
+  <meta charset="UTF-8" />
+
+  <!-- Viewport scaling — makes layout adapt to phones and tablets -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Text shown in the browser tab and search engine results -->
+  <title>Memphis Cartoneras</title>
+
+  <!--
+    Google Fonts — four typefaces loaded from Google's CDN:
+      Abril Fatface   → bold, display-style section headings
+      Caveat          → casual handwritten feel for cards and captions
+          change to indie flower
+      Nunito          → clean, readable body text and nav buttons
+          change to times new roman
+      Permanent Marker → rough marker-pen style for labels and accents
+    weights=400,600,700,800,900 give us fine control over text weight
+  -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Indie+Flower:wght@400;600;700&family=Nunito:wght@400;500;600;700;800;900&family=Permanent+Marker&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Link to the external stylesheet that styles every element on this page -->
+  <link rel="stylesheet" href="css/styles.css"/>
+
+</head>
+<body>
+
+
+<!-- ================================================================
+     NAVIGATION
+     Fixed bar anchored to the top of the viewport at all times.
+     Stays visible while the user scrolls through the page.
+
+     Structure:
+       .nav-logo      → logo image, links back to #hero
+       .nav-links     → five anchor links to page sections
+     ================================================================ -->
+<nav>
+
+  <!-- Logo image in the top-left corner; clicking scrolls to top -->
+  <a class="nav-logo" href="#hero">
+    <img
+      src="images/logo.png"
+      alt="Memphis Cartoneras logo — colorful book with sun rays"
+      class="nav-logo-img"
+    />
+  </a>
+
+  <!-- Nav links; each <li> gets a unique color from CSS nth-child rules -->
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#history">Origins</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact">Apply</a></li> <!-- styled bold green to stand out -->
+  </ul>
+
+</nav>
+
+
+<!-- ================================================================
+     HERO SECTION  (#hero)
+     Takes up the full viewport height on load.
+     Contains the large logo, a tagline strip, and three buttons.
+     Three blurred color blobs sit in the background for depth.
+
+     The torn-paper bottom edge is created entirely with CSS
+     clip-path on #hero::before — no images needed.
+     ================================================================ -->
+<section id="hero">
+
+  <!-- Background color blobs — purely decorative, low opacity -->
+  <div class="hero-bg-splash splash-1"></div>  <!-- red,    top-left  -->
+  <div class="hero-bg-splash splash-2"></div>  <!-- teal,   bottom-right -->
+  <div class="hero-bg-splash splash-3"></div>  <!-- yellow, top-right -->
+
+  <!-- Logo image — centered, large, transparent background -->
+  <div class="logo-container">
+    <img
+      src="images/logo.png"
+      alt="Memphis Cartoneras — colorful book logo with sun and rainbow lettering"
+      class="hero-logo-img"
+    />
+  </div>
+
+  <!-- Tagline — rendered as a yellow tape-strip label, slightly rotated -->
+  <p class="hero-tagline">Handmade books. Nurturing literacy. Recycling cardboard.</p>
+
+  <!-- Call-to-action buttons; each links to a different section -->
+  <div class="hero-buttons">
+    <a href="#about"   class="btn btn-story">Our Story</a>       <!-- teal tile  -->
+    <a href="#gallery" class="btn btn-gallery">Student Work</a>  <!-- red tile   -->
+    <a href="#contact" class="btn btn-apply">Become a Fellow</a> <!-- yellow tile-->
+  </div>
+
+</section>
+
+
+<!-- ================================================================
+     ABOUT SECTION  (#about)
+     Light cardboard-tinted background with a top + bottom border.
+     Three cards arranged in a 2-column CSS grid:
+       Card 1 (left)  → Mission statement paragraph
+       Card 2 (right) → Values list with colored dots
+       Card 3 (full)  → History of the cartonera movement
+     Each card has a CSS tape-strip decoration along the top edge.
+     ================================================================ -->
+<section id="about">
+  <div class="section-inner">
+
+    <!-- Small all-caps label above the main heading -->
+    <span class="section-label">Who We Are</span>
+
+    <!-- Section heading with a red underline bar (CSS ::after) -->
+    <h2 class="section-title underline-red">About Memphis Cartoneras</h2>
+
+    <!-- 2-column card grid; on mobile it stacks to 1 column -->
+    <div class="about-grid">
+
+      <!-- CARD 1: Mission -->
+      <div class="about-card">
+        <h3>📚 Our Mission</h3>
+        <p>
+          Memphis Cartoneras is a cooperative publishing house dedicated to nurturing
+          literacy and creative expression among students through the art of
+          handmade bookmaking. Using reclaimed and reused cardboard, our students
+          don't just read books, they <em>build</em> them.
+        </p>
+        <p style="margin-top:14px;">
+          Every book produced in our workshops is a one-of-a-kind artifact: a
+          testament to imagination, sustainability, and the transformative power
+          of storytelling. We believe that when students hold a book they have
+          made with their own hands, something extraordinary happens.
+        </p>
+      </div>
+
+      <!-- CARD 2: Values — each item is a colored dot + text label -->
+      <div class="about-card">
+        <h3>🌿 What We Stand For</h3>
+        <div class="about-values">
+          <div class="value-chip">
+            <div class="value-dot" style="background:var(--red);"></div>
+            Literacy as empowerment
+          </div>
+          <div class="value-chip">
+            <div class="value-dot" style="background:var(--teal);"></div>
+            Creativity without limits
+          </div>
+          <div class="value-chip">
+            <div class="value-dot" style="background:var(--blue);"></div>
+            Community &amp; cooperation
+          </div>
+          <div class="value-chip">
+            <div class="value-dot" style="background:var(--orange);"></div>
+            Sustainability &amp; reuse
+          </div>
+          <div class="value-chip">
+            <div class="value-dot" style="background:var(--purple);"></div>
+            Student voices amplified
+          </div>
+          <div class="value-chip">
+            <div class="value-dot" style="background:var(--green);"></div>
+            Accessible publishing for all
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3: Cartonera history — spans both columns via inline style -->
+      <div class="about-card" style="grid-column: 1 / -1;">
+        <h3>✂ The Cartonera Tradition</h3>
+        <p>
+          The cartonera movement began in Buenos Aires in the early 2000s by writers and artists Washington Cucurto, Javier Barilaro, and Fernando Laguna. It started as a
+          grassroots response to economic crisis and cultural hunger, aimed at promoting literacy, affordable literature, and sustainability.
+        </p>
+        <p style="margin-top:12px;">
+          Memphis Cartoneras carries that spirit forward: rooted in Memphis,
+          connected to a global tradition of community publishing, and committed
+          to making literary creation an act of joy and resistance.
+        </p>
+      </div>
+
+    </div><!-- end .about-grid -->
+  </div>
+</section>
+
+
+<!-- ================================================================
+     HISTORY / ORIGINS SECTION  (#history)
+     Vertical dashed timeline line drawn with CSS ::before.
+     Each .timeline-item has:
+       .timeline-dot  → colored circle on the left rail
+       .timeline-card → cream card with tape decoration + text
+
+     ★ Update the year labels and paragraph text to match the
+       actual founding dates and milestones.
+     ================================================================ -->
+<section id="history">
+  <div class="section-inner">
+
+    <span class="section-label">How We Got Here</span>
+    <h2 class="section-title underline-teal">Our Origins &amp; Journey</h2>
+
+    <!-- Timeline rail — the vertical dashed line is drawn via .timeline::before -->
+    <div class="timeline">
+
+      <!-- EVENT 1: Founding -->
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--red);"></div>
+        <div class="timeline-card">
+          <div class="timeline-year">The Beginning</div>
+          <h3>The Spark in Memphis</h3>
+          <p>
+            Memphis Cartoneras was founded by a professor at Rhodes College with a deep belief that storytelling belongs to everyone.
+            Inspired by Latin American cartonera cooperatives, the idea was to
+            bring handmade, community-published books to students in Memphis,
+            a city with rich literary and musical traditions that often go
+            unrecorded and unpublished.
+          </p>
+        </div>
+      </div>
+
+      <!-- EVENT 2: First workshops -->
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--teal);"></div>
+        <div class="timeline-card">
+          <div class="timeline-year">Growing Roots</div>
+          <h3>First Workshops &amp; Books</h3>
+          <p>
+            The first cohort of student fellows gathered around a table covered
+            in cardboard, scissors, glue, and paint. They wrote stories. They
+            cut covers. They bound pages together with their own hands. The
+            result was a small run of handmade books that circulated through
+            classrooms and community spaces.
+          </p>
+        </div>
+      </div>
+
+      <!-- EVENT 3: Expansion -->
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--orange);"></div>
+        <div class="timeline-card">
+          <div class="timeline-year">Expanding</div>
+          <h3>A Community Takes Shape</h3>
+          <p>
+            What started as a small workshop grew into a cooperative with
+            multiple cohorts of fellows, community partners, and a growing
+            library of student-made books. Memphis Cartoneras began hosting
+            public readings, bookmaking workshops for K–12 students, and
+            events celebrating local voices.
+          </p>
+        </div>
+      </div>
+
+      <!-- EVENT 4: Present day -->
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--blue);"></div>
+        <div class="timeline-card">
+          <div class="timeline-year">Today</div>
+          <h3>A Living, Growing Press</h3>
+          <p>
+            Memphis Cartoneras continues to grow, publishing new works each
+            semester, training new fellows, and connecting students to a global
+            tradition of grassroots literary publishing. Every book we make is
+            a piece of Memphis history, crafted by the people who live it.
+          </p>
+        </div>
+      </div>
+
+    </div><!-- end .timeline -->
+  </div>
+</section>
+
+
+<!-- ================================================================
+     GALLERY SECTION  (#gallery)
+     Auto-filling CSS grid of photo cards.
+     Currently shows 5 placeholder cards + 1 "coming soon" card.
+
+     TO REPLACE A PLACEHOLDER WITH A REAL PHOTO:
+       1. Remove the entire .gallery-img-placeholder div
+       2. Add: <img src="images/your-book-photo.jpg"
+                    alt="Book title by Student Name"
+                    style="width:100%; aspect-ratio:4/3;
+                           object-fit:cover; display:block;">
+       3. Replace the two .gallery-caption-line divs with real text:
+          <p style="font-family:'Caveat',cursive; font-size:1.1rem;
+                    font-weight:700; color:#2c1810; padding:8px 16px 0;">
+            Book Title Here
+          </p>
+          <p style="font-size:0.85rem; color:#7a5030; padding:4px 16px 12px;">
+            Student Name · Spring 2025
+          </p>
+     ================================================================ -->
+<section id="gallery">
+  <div class="section-inner">
+
+    <span class="section-label">Student Work</span>
+    <h2 class="section-title underline-orange">Gallery</h2>
+
+    <!-- Short description below the heading -->
+    <p class="gallery-intro">
+      Every book here was imagined, written, illustrated, and bound by a student
+      at Memphis Cartoneras. These aren't just projects — they're published works.
+    </p>
+
+    <!-- Card grid — min 250px per card, fills available width -->
+    <div class="gallery-grid">
+
+      <!-- PLACEHOLDER 1 — red tint background -->
+      <div class="gallery-card">
+        <div class="gallery-img-placeholder" style="background:rgba(192,57,43,0.1);">
+          <svg width="48" height="48" fill="none" stroke="#7a3020" stroke-width="1.5" viewBox="0 0 24 24">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+          <span class="gallery-upload-hint">Upload student book image</span>
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-line"></div> <!-- ruled line 1 (85% wide) -->
+          <div class="gallery-caption-line"></div> <!-- ruled line 2 (60% wide) -->
+        </div>
+      </div>
+
+      <!-- PLACEHOLDER 2 — teal tint background -->
+      <div class="gallery-card">
+        <div class="gallery-img-placeholder" style="background:rgba(26,122,110,0.1);">
+          <svg width="48" height="48" fill="none" stroke="#0e4a42" stroke-width="1.5" viewBox="0 0 24 24">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+          <span class="gallery-upload-hint">Upload student book image</span>
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-line"></div>
+          <div class="gallery-caption-line"></div>
+        </div>
+      </div>
+
+      <!-- PLACEHOLDER 3 — blue tint background -->
+      <div class="gallery-card">
+        <div class="gallery-img-placeholder" style="background:rgba(36,113,163,0.1);">
+          <svg width="48" height="48" fill="none" stroke="#0d3f60" stroke-width="1.5" viewBox="0 0 24 24">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+          <span class="gallery-upload-hint">Upload student book image</span>
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-line"></div>
+          <div class="gallery-caption-line"></div>
+        </div>
+      </div>
+
+      <!-- PLACEHOLDER 4 — purple tint background -->
+      <div class="gallery-card">
+        <div class="gallery-img-placeholder" style="background:rgba(142,68,173,0.1);">
+          <svg width="48" height="48" fill="none" stroke="#5a1a6a" stroke-width="1.5" viewBox="0 0 24 24">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+          <span class="gallery-upload-hint">Upload student book image</span>
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-line"></div>
+          <div class="gallery-caption-line"></div>
+        </div>
+      </div>
+
+      <!-- PLACEHOLDER 5 — orange tint background -->
+      <div class="gallery-card">
+        <div class="gallery-img-placeholder" style="background:rgba(230,126,34,0.1);">
+          <svg width="48" height="48" fill="none" stroke="#7a4010" stroke-width="1.5" viewBox="0 0 24 24">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+          <span class="gallery-upload-hint">Upload student book image</span>
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-line"></div>
+          <div class="gallery-caption-line"></div>
+        </div>
+      </div>
+
+      <!-- COMING SOON card — dashed border, lower opacity -->
+      <div class="gallery-card" style="border-style:dashed; background:rgba(255,248,220,0.5); cursor:default;">
+        <div class="gallery-img-placeholder" style="background:transparent; border-bottom:2px dashed var(--cardboard-dark);">
+          <svg width="48" height="48" fill="none" stroke="rgba(120,80,30,0.4)" stroke-width="1.5" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/>
+          </svg>
+          <span style="font-family:'Caveat',cursive; font-size:1rem; color:rgba(80,50,20,0.5);">More coming soon</span>
+        </div>
+        <div class="gallery-caption">
+          <div class="gallery-caption-line" style="opacity:0.25;"></div>
+          <div class="gallery-caption-line" style="opacity:0.25;"></div>
+        </div>
+      </div>
+
+    </div><!-- end .gallery-grid -->
+
+    <!-- In-page reminder note about how to add real photos -->
+    <div style="margin-top:36px; font-family:'Caveat',cursive; font-size:1rem; color:#5a3a20; background:rgba(255,248,220,0.8); display:inline-block; padding:10px 20px; border:2px dashed var(--cardboard-dark);">
+      ✏️ <strong>To add images:</strong> Replace placeholder divs with &lt;img&gt; tags. See js/main.js for full step-by-step instructions.
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================================================================
+     CONTACT & APPLY SECTION  (#contact)
+     Two-column layout:
+       Left column  → .contact-info-card (light cream background)
+       Right column → .fellow-card       (dark ink background)
+
+     ★ THREE THINGS TO UPDATE:
+       1. professor@rhodes.edu → real email (appears twice: here + footer)
+       2. Google Form href       → your real application form URL
+       3. Office location/hours → update if different from shown
+     ================================================================ -->
+<section id="contact">
+  <div class="section-inner">
+
+    <span class="section-label">Get In Touch</span>
+    <h2 class="section-title underline-blue">Contact &amp; Apply</h2>
+
+    <!-- 2-column grid; stacks vertically on screens narrower than 820px -->
+    <div class="contact-grid">
+
+      <!-- LEFT CARD: Contact information -->
+      <div class="contact-info-card">
+        <h3>📬 Reach the Professor</h3>
+
+        <!-- Row: email address -->
+        <div class="contact-detail">
+          <div class="contact-icon" style="background:rgba(192,57,43,0.12); border-color:var(--red);">✉</div>
+          <div>
+            <strong>Email</strong>
+            <!-- ★ Replace the email address below -->
+            <p>
+              <a href="mailto:PettinaroliE@rhodes.edu" style="color:var(--blue); text-decoration:none;">
+                PettinaroliE@rhodes.edu
+              </a><br>
+              <span style="font-size:0.82rem; color:#7a5030;">We'll get back to you within 2–3 business days.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Row: office location -->
+        <div class="contact-detail">
+          <div class="contact-icon" style="background:rgba(26,122,110,0.12); border-color:var(--teal);">🏛</div>
+          <div>
+            <strong>Office</strong>
+            <p>Department of Spanish & Latin American, LatinX Studies<br>Rhodes College<br>Memphis, TN</p>
+          </div>
+        </div>
+
+        <!-- Row: office hours -->
+        <div class="contact-detail">
+          <div class="contact-icon" style="background:rgba(36,113,163,0.12); border-color:var(--blue);">⏰</div>
+          <div>
+            <strong>Office Hours</strong>
+            <p>By appointment — please email to schedule.<br>
+            <span style="font-size:0.82rem; color:#7a5030;">In-person and virtual appointments available.</span></p>
+          </div>
+        </div>
+
+        <!-- General invitation message at the bottom of the card -->
+        <div style="margin-top:24px; padding-top:20px; border-top:2px dashed var(--cardboard-mid);">
+          <p style="font-family:'Caveat',cursive; font-size:1.05rem; color:#5a3a20;">
+            Questions about workshops, partnerships, or how to bring Memphis Cartoneras
+            to your classroom? We'd love to hear from you.
+          </p>
+        </div>
+      </div><!-- end .contact-info-card -->
+
+      <!-- RIGHT CARD: Fellowship application (dark background) -->
+      <div class="fellow-card">
+        <h3>✦ Become a Fellow</h3>
+
+        <!-- Intro paragraph about the fellowship -->
+        <p>
+          Memphis Cartoneras Fellows are the heart of our cooperative. As a fellow,
+          you'll work alongside other students to write, illustrate, and publish
+          original works, and help teach bookmaking to the wider community.
+        </p>
+
+        <!-- Benefits list — each item gets a ★ bullet via CSS ::before -->
+        <ul class="fellow-perks">
+          <li>Hands-on bookmaking &amp; publishing experience</li>
+          <li>Mentorship from faculty and visiting authors</li>
+          <li>Published work in the Cartoneras library</li>
+          <li>Community engagement &amp; outreach opportunities</li>
+          <li>A portfolio of handmade, published books</li>
+        </ul>
+
+        <!--
+          ★ Replace the href with your real Google Form link.
+          Format: https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform
+        -->
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfpe49n6ZGiC7H_6OawXZYnUmEd2d7A0L6Kb_6L87bALxhISQ/viewform?usp=header"
+          target="_blank"
+          class="btn btn-apply"
+          style="display:inline-block;"
+        >
+          Apply to Be a Fellow
+        </a>
+        </p>
+      </div><!-- end .fellow-card -->
+
+    </div><!-- end .contact-grid -->
+  </div>
+</section>
+
+
+<!-- ================================================================
+     FOOTER
+     Dark brown background spanning full width.
+     Three-column inner grid (collapses to 1 column on mobile):
+       Column 1 → brand name + short description
+       Column 2 → "Navigate" links to page sections
+       Column 3 → "Get Involved" links
+     Slim .footer-bottom bar at the very bottom with copyright text.
+     ================================================================ -->
+<footer>
+
+  <!-- Three-column inner grid -->
+  <div class="footer-inner">
+
+    <!-- COLUMN 1: Brand blurb -->
+    <div class="footer-brand">
+      <h3>✂ Memphis Cartoneras</h3>
+      <p>A cooperative publishing house making books from reclaimed cardboard and making readers and writers out of students in Memphis, Tennessee.</p>
+    </div>
+
+    <!-- COLUMN 2: Page navigation links -->
+    <div class="footer-links">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#history">Origins</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- COLUMN 3: Involvement / action links -->
+    <div class="footer-links">
+      <h4>Get Involved</h4>
+      <ul>
+        <li><a href="#contact">Apply to be a Fellow</a></li>
+        <li><a href="#contact">Partner With Us</a></li>
+        <li><a href="#contact">Book a Workshop</a></li>
+        <!-- ★ Replace with real email address -->
+        <li><a href="mailto:PettinaroliE@rhodes.edu">Email Us</a></li>
+      </ul>
+    </div>
+
+  </div><!-- end .footer-inner -->
+
+  <!-- Bottom bar: copyright on the left, decorative symbols on the right -->
+  <div class="footer-bottom">
+    <span>© Memphis Cartoneras — Made with cardboard &amp; care in Memphis, TN</span>
+    <span style="font-family:'Permanent Marker',cursive; color:var(--cardboard-dark);">✂ ✦ ✂</span>
+  </div>
+
+</footer>
+
+
+<!-- JavaScript file loaded at end of body for best page-load performance -->
+<script src="js/main.js"></script>
+
+</body>
+</html>
